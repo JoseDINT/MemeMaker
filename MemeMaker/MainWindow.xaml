@@ -22,7 +22,7 @@
             <Setter Property="Margin"
                     Value="0,10,20,0"></Setter>
         </Style>
-        
+
         <Style TargetType="TextBlock"
                x:Key="textoMeme">
             <Setter Property="Foreground"
@@ -45,7 +45,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <Style TargetType="Slider">
             <Setter Property="Minimum"
                     Value="100"></Setter>
@@ -63,8 +63,9 @@
     </Window.Resources>
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                  VerticalScrollBarVisibility="Auto">
-        <StackPanel>
+                  VerticalScrollBarVisibility="Auto"
+                  >
+        <StackPanel >
             <Grid Margin="5,10,5,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="80" />
@@ -121,12 +122,15 @@
             </Grid>
             <Border Background="#FFF3D2D2"
                     BorderBrush="Black"
-                    Margin="10">
+                    BorderThickness="2"
+                    Margin="10"
+                    Width="{Binding ElementName=anchoSlider , Path=Value}"
+                    Height="{Binding ElementName=altoSlider, Path=Value}">
                 <Grid>
-                    <Image Stretch="Fill" />
+                    <Image Source="{Binding ElementName=imagenTextBox,Path=Resources}" Stretch="Fill" />
                     <TextBlock Style="{StaticResource textoMeme}"
-                               VerticalAlignment="Top"></TextBlock>
-                    <TextBlock Style="{StaticResource textoMeme}"
+                               VerticalAlignment="Top" Text="{Binding ElementName=superiorTextBox, Path=Text}"></TextBlock>
+                    <TextBlock Style="{StaticResource textoMeme}" Text="{Binding ElementName=inferiorTextBox, Path=Text}"
                                VerticalAlignment="Bottom"></TextBlock>
                 </Grid>
             </Border>
